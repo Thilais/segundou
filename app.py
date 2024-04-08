@@ -24,12 +24,12 @@ def ler_transcricao():
     return texto
 
 # Função para gerar o título da matéria
-def gerar_titulo(transcricao):
+def gerar_titulo(transcricao, nome_especialista):
     resposta = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Você é um assistente útil."},
-            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, gerar um título curto e atraente para a matéria." }
+            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, gerar um título curto e atraente para a matéria. Cite o nome do especialista {especialista} que comentou sobre a reunião." }
         ]
     )
     return resposta.choices[0].message["content"]
@@ -51,7 +51,7 @@ def gerar_informacoes_secundarias(transcricao, titulo, nome_especialista, consid
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Você é um assistente útil."},
-            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, e no título gerado {titulo}, escreva a matérias em 3 parágrafos. Mencione no texto o especialista {nome_especialista}, e as suas seguintes considerações sobre o que achou da reunião de hoje {consideracoes}. " }
+            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, e no título gerado {titulo}, escreva a matérias em 3 parágrafos. Mencione em  lugar de destaque do texto o especialista {nome_especialista}, e use as suas seguintes consideraçõe {consideracoes} sobre o que achou da reunião de hoje tanto nas citações, quanto para mudar o tom do texto da matéria. " }
         ]
     )
     return resposta.choices[0].message["content"]
