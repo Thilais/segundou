@@ -72,7 +72,7 @@ def gerar_materia():
     consideracoes = request.form['consideracoes']
 
     # Chama a função para gerar o título da matéria
-    titulo = gerar_titulo(transcricao)
+    titulo = gerar_titulo(transcricao, nome_especialista)
 
     # Chama as demais funções para gerar as partes da matéria
     lide = gerar_lide(transcricao, titulo)
