@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Matérias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<a href="https://www.santocaos.com.br/diversidade-inclusao/" class="link-logo" tabindex="0" aria-label="Ir para Guia de Compras" accesskey="" style="color: rgb(196, 23, 12); --link-logo-hover-border-color: #C4170C;">guia de compras</a>
+<a class="header-editoria--link ellip-line" href="https://www.santocaos.com.br/">Santo Caos</a>
+
+<div class="container">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo da sua empresa">
+</div>
+    
+{% if titulo %}
+    <header>
+        <h1>{{ titulo }}</h1>
+    </header>
+{% endif %}
+
+<main>
+    {% if lide %}
+        <section class="lide">
+            <p>{{ lide }}</p>
+        </section>
+    {% endif %}
+    
+    {% if informacoes_secundarias %}
+        <section class="informacoes-secundarias">
+            <p>{{ informacoes_secundarias }}</p>
+        </section>
+    {% endif %}
+
+</main>
+
+</body>
+</html>
+
