@@ -7,8 +7,9 @@ from werkzeug.utils import secure_filename
 from docx import Document
 
 app = Flask(__name__)
-load_dotenv()  # Carrega as variáveis de ambiente do arquivo .env
-openai.api_key = os.getenv(OPENAI_API_KEY)
+
+#Credencial para uso da API do ChatGPT
+ROBO_GPT_TOKEN = os.environ["ROBO_GPT_TOKEN"]
 
 from flask import Flask, render_template, request, redirect
 from docx import Document
