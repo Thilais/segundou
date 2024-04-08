@@ -24,12 +24,12 @@ def ler_transcricao():
     return texto
 
 # Função para gerar o título da matéria
-def gerar_titulo(transcricao, titulo, nome_especialista):
+def gerar_titulo(transcricao, nome_especialista, consideracoes):
     resposta = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Você é um assistente útil."},
-            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, gerar um título curto e atraente para a matéria. Cite o nome do especialista {nome_especialista} que comentou sobre a reunião." }
+            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, gerar um título curto e atraente para a matéria. Cite o nome do especialista {nome_especialista} que comentou sobre a reunião.Considere as suas seguintes consideraçõe {consideracoes} sobre o que achou da reunião de hoje tanto nas citações, quanto para mudar o tom do texto"" }
         ]
     )
     return resposta.choices[0].message["content"]
@@ -72,7 +72,7 @@ def gerar_materia():
     consideracoes = request.form['consideracoes']
 
     # Chama a função para gerar o título da matéria
-    titulo = gerar_titulo(transcricao, nome_especialista)
+    titulo = gerar_titulo(transcricao, nome_especialista, consideracoes)
 
     # Chama as demais funções para gerar as partes da matéria
     lide = gerar_lide(transcricao, titulo)
