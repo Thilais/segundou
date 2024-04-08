@@ -1,0 +1,11 @@
+from flask import Flask, render_template, request
+import openai
+from werkzeug.utils import secure_filename
+import docx
+import os
+from flask import Flask, render_template, request, redirect
+import openai
+from dotenv import load_dotenv
+import os
+import re
+from docx import Document
