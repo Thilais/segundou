@@ -1,0 +1,10 @@
+# Arquivos de configuração local
+config.yml
+.env
+
+# Logs
+logs/
+
+# Arquivos compilados
+*.pyc
+dist/
