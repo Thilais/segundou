@@ -9,3 +9,4 @@ from dotenv import load_dotenv
 import os
 import re
 from docx import Document
+gunicorn
