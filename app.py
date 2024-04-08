@@ -9,7 +9,7 @@ from docx import Document
 app = Flask(__name__)
 
 #Credencial para uso da API do ChatGPT
-ROBO_GPT_TOKEN = os.environ["ROBO_GPT_TOKEN"]
+OPENAI_API_KEY= os.environ["OPENAI_API_KEY"]
 
 from flask import Flask, render_template, request, redirect
 from docx import Document
@@ -51,7 +51,7 @@ def gerar_informacoes_secundarias(transcricao, titulo, nome_especialista, consid
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Você é um assistente útil."},
-            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, e no título gerado {titulo}, escreva a matérias em 3 parágrafos. Mencione no texto o especialista {nome_especialista}, e as suas seguintes considerações sobre o tema {consideracoes}. " }
+            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, e no título gerado {titulo}, escreva a matérias em 3 parágrafos. Mencione no texto o especialista {nome_especialista}, e as suas seguintes considerações sobre o que achou da reunião de hoje {consideracoes}. " }
         ]
     )
     return resposta.choices[0].message["content"]
