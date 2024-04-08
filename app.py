@@ -8,7 +8,7 @@ from docx import Document
 
 app = Flask(__name__)
 load_dotenv()  # Carrega as variáveis de ambiente do arquivo .env
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv(OPENAI_API_KEY)
 
 from flask import Flask, render_template, request, redirect
 from docx import Document
