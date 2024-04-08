@@ -3,3 +3,4 @@ flask
 openai
 python-dotenv
 python-docx
+openai>=1.0.0
