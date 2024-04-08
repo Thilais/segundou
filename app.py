@@ -24,7 +24,7 @@ def ler_transcricao():
     return texto
 
 # Função para gerar o título da matéria
-def gerar_titulo(transcricao, nome_especialista):
+def gerar_titulo(transcricao, titulo, nome_especialista):
     resposta = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
