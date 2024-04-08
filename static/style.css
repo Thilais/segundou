@@ -110,3 +110,11 @@ img {
     max-width: 200px; /* Defina o tamanho máximo da imagem conforme necessário */
     height: auto;
 }
+
+.lide p {
+    font-size: 16px;
+}
+
+.informacoes-secundarias p{
+    font-size: 20px
+}
