@@ -29,7 +29,7 @@ def gerar_titulo(transcricao, nome_especialista):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Você é um assistente útil."},
-            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, gerar um título curto e atraente para a matéria. Cite o nome do especialista {especialista} que comentou sobre a reunião." }
+            {"role": "user", "content": f"Você é um jornalista escrevendo uma matéria sobre uma reunião da equipe Santo Caos que aconteceu hoje. Com base nesta transcrição de reunião: {transcricao}, gerar um título curto e atraente para a matéria. Cite o nome do especialista {nome_especialista} que comentou sobre a reunião." }
         ]
     )
     return resposta.choices[0].message["content"]
